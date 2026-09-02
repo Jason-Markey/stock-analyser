@@ -1,0 +1,7 @@
+output/
+data/
+__pycache__/
+*.pyc
+shot_*.png
+
+*.png
