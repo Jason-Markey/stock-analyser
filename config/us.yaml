@@ -1,0 +1,113 @@
+# Stock Analyser — US market configuration
+
+market:
+  key: us
+  label: US
+  currency: "US$"
+  benchmark: SPY
+  benchmark_label: "S&P 500"
+  tape:
+    SPY: "S&P 500 (SPY)"
+    QQQ: "Nasdaq 100 (QQQ)"
+    IWM: "Small caps (IWM)"
+    "^VIX": "Volatility (VIX)"
+  session: { tz: "America/New_York", open: "09:30", close: "16:00", label: "US Eastern" }
+  liquidity_floor: 5000000
+  small_vs_large: [IWM, SPY]
+  defensives: ["Consumer staples", "Health tech / GLP1"]
+  cyclicals: ["Banks", "Mega tech / platforms", "Semis"]
+
+drivers:
+  "^TNX":  { label: "US 10Y yield", themes: ["Rates — growth vs value"], beneficiaries: [] }
+  "GC=F":  { label: "Gold (US$/oz)", themes: ["Gold / silver miners"], beneficiaries: [NEM, AEM, KGC] }
+  "BZ=F":  { label: "Brent crude", themes: ["Oil & gas"], beneficiaries: [XOM, CVX, COP] }
+  "^HSI":  { label: "Hang Seng", themes: ["China exposure"], beneficiaries: [] }
+
+baskets:
+  AI infra / datacenter: [NVDA, AMD, AVGO, SMCI, VRT, DELL, ANET, MRVL, TSM, ORCL]
+  Semis:                 [INTC, QCOM, TXN, ADI, NXPI, "ON", MCHP, SWKS]
+  Semi equipment:        [ASML, AMAT, LRCX, KLAC, TER, ONTO, VECO]
+  Memory:                [MU, WDC, STX, SNDK]
+  Software:              [MSFT, CRM, NOW, ADBE, INTU, PLTR, SNOW, DDOG, TEAM, MDB, HUBS, OKTA]
+  Quantum:               [IONQ, RGTI, QBTS, QUBT]
+  Space / defence tech:  [RKLB, LUNR, ASTS, ACHR, JOBY, KTOS, AVAV, RDW, PL]
+  Defence primes:        [LMT, RTX, NOC, GD, LHX, BA, HII]
+  Nuclear / uranium:     [CCJ, UEC, NNE, OKLO, SMR, LEU, UUUU]
+  Gold / silver miners:  [NEM, GOLD, AEM, KGC, HL, CDE, PAAS, AG, WPM, FNV]
+  Oil & gas:             [XOM, CVX, COP, EOG, DVN, OXY, FANG, SLB, HAL]
+  Crypto miners / treasury: [MSTR, COIN, MARA, RIOT, CLSK, HUT, IREN, CIFR]
+  Biotech:               [AMGN, GILD, VRTX, REGN, MRNA, BIIB, ALNY, SRPT]
+  Health tech / GLP1:    [LLY, NVO, UNH, ISRG, HIMS, DXCM, MDT]
+  Banks:                 [JPM, BAC, WFC, C, GS, MS, SCHW, HBAN]
+  Fintech / payments:    [V, MA, PYPL, XYZ, AXP, SOFI, HOOD, AFRM]
+  Mega tech / platforms: [AAPL, GOOGL, META, AMZN, NFLX, TSLA, UBER, SPOT, RDDT]
+  Consumer staples:      [WMT, COST, PG, KO, PEP, PM, MDLZ, CL]
+  Homebuilders:          [DHI, LEN, PHM, NVR, TOL]
+  Travel:                [BKNG, ABNB, DAL, UAL, RCL, CCL, MAR, EXPE]
+
+names:
+  NVDA: NVIDIA
+  AMD: Advanced Micro Devices
+  AVGO: Broadcom
+  MSFT: Microsoft
+  AAPL: Apple
+  GOOGL: Alphabet
+  META: Meta Platforms
+  AMZN: Amazon
+  NFLX: Netflix
+  TSLA: Tesla
+  ORCL: Oracle
+  TSM: TSMC
+  MU: Micron
+  INTC: Intel
+  QCOM: Qualcomm
+  ASML: ASML
+  AMAT: Applied Materials
+  LRCX: Lam Research
+  PLTR: Palantir
+  CRM: Salesforce
+  NOW: ServiceNow
+  ADBE: Adobe
+  SNOW: Snowflake
+  MSTR: Strategy
+  COIN: Coinbase
+  MARA: MARA Holdings
+  LLY: Eli Lilly
+  NVO: Novo Nordisk
+  UNH: UnitedHealth
+  AMGN: Amgen
+  GILD: Gilead
+  VRTX: Vertex
+  REGN: Regeneron
+  JPM: JPMorgan Chase
+  BAC: Bank of America
+  GS: Goldman Sachs
+  MS: Morgan Stanley
+  V: Visa
+  MA: Mastercard
+  PYPL: PayPal
+  XYZ: Block
+  HOOD: Robinhood
+  XOM: Exxon Mobil
+  CVX: Chevron
+  COP: ConocoPhillips
+  NEM: Newmont
+  AEM: Agnico Eagle
+  CCJ: Cameco
+  OKLO: Oklo
+  SMR: NuScale Power
+  LMT: Lockheed Martin
+  RTX: RTX Corp
+  BA: Boeing
+  RKLB: Rocket Lab
+  ASTS: AST SpaceMobile
+  IONQ: IonQ
+  WMT: Walmart
+  COST: Costco
+  BKNG: Booking Holdings
+  ABNB: Airbnb
+  UBER: Uber
+  RDDT: Reddit
+  SPOT: Spotify
+  DHI: D.R. Horton
+  LEN: Lennar

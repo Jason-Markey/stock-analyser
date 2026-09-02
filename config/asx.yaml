@@ -1,0 +1,145 @@
+# Stock Analyser — ASX market configuration
+# Tickers are Yahoo symbols (.AX suffix); the app displays them without the suffix.
+
+market:
+  key: asx
+  label: ASX
+  currency: "A$"
+  benchmark: "^AXJO"
+  benchmark_label: "ASX 200"
+  tape:
+    "^AXJO": "ASX 200"
+    "^AORD": "All Ordinaries"
+    "^AXSO": "Small Ordinaries"
+    "AUDUSD=X": "AUD/USD"
+  session: { tz: "Australia/Sydney", open: "10:00", close: "16:00", label: "AEST/AEDT Sydney" }
+  liquidity_floor: 1000000          # A$ 20-day avg dollar volume
+  small_vs_large: ["^AXSO", "^AXJO"]   # small-cap risk appetite pair
+  defensives: ["Consumer staples", "Healthcare"]
+  cyclicals: ["Major banks", "Diversified miners", "Consumer discretionary"]
+
+drivers:                             # Australia market drivers strip
+  "AUDUSD=X":  { label: "AUD/USD",        themes: ["Exporters ↔ importers"] , beneficiaries: [] }
+  "GC=F":      { label: "Gold (US$/oz)",  themes: ["Gold miners"], beneficiaries: [NST, EVN, GMD] }
+  "HG=F":      { label: "Copper",         themes: ["Copper", "Diversified miners"], beneficiaries: [BHP, SFR] }
+  "BZ=F":      { label: "Brent crude",    themes: ["Oil & gas"], beneficiaries: [WDS, STO, BPT] }
+  "^TNX":      { label: "US 10Y yield",   themes: ["Banks ↔ REITs"], beneficiaries: [] }
+  "SPY":       { label: "S&P 500",        themes: ["Global risk appetite"], beneficiaries: [] }
+  "^HSI":      { label: "Hang Seng",      themes: ["China demand — iron ore, education, tourism"], beneficiaries: [BHP, RIO, FMG] }
+  # Iron ore has no reliable free ticker; FMG/champion proxies stand in via the Iron ore theme itself.
+
+baskets:
+  Major banks:            [CBA.AX, NAB.AX, WBC.AX, ANZ.AX, MQG.AX, BEN.AX, BOQ.AX]
+  Diversified miners:     [BHP.AX, RIO.AX, S32.AX, MIN.AX, IGO.AX]
+  Iron ore:               [FMG.AX, CIA.AX, DRR.AX, MGX.AX]
+  Gold miners:            [NST.AX, EVN.AX, GMD.AX, PRU.AX, RRL.AX, CMM.AX, WAF.AX, RSG.AX]
+  Copper:                 [SFR.AX, AIS.AX, C6C.AX]
+  Lithium / battery:      [PLS.AX, LTR.AX, CXO.AX, SYA.AX, VUL.AX]
+  Uranium:                [PDN.AX, BOE.AX, DYL.AX, LOT.AX, BMN.AX]
+  Oil & gas:              [WDS.AX, STO.AX, BPT.AX, KAR.AX]
+  Healthcare:             [CSL.AX, RMD.AX, COH.AX, SHL.AX, FPH.AX, EBO.AX]
+  Biotech:                [PME.AX, TLX.AX, MSB.AX, NEU.AX, CU6.AX]
+  Software / tech:        [XRO.AX, WTC.AX, TNE.AX, SDR.AX, MP1.AX, NXL.AX]
+  Online marketplaces:    [REA.AX, CAR.AX, SEK.AX, DHG.AX]
+  Data centres / AI infra: [NXT.AX, GMG.AX, MAQ.AX, DGT.AX]
+  Defence:                [ASB.AX, CDA.AX, DRO.AX, EOS.AX]
+  Consumer discretionary: [WES.AX, JBH.AX, HVN.AX, LOV.AX, TPW.AX, ALL.AX]
+  Consumer staples:       [WOW.AX, COL.AX, EDV.AX, MTS.AX]
+  REITs:                  [GMG.AX, SCG.AX, SGP.AX, VCX.AX, CHC.AX]
+  Industrials:            [BXB.AX, QAN.AX, SVW.AX, TCL.AX, ALQ.AX]
+  Agriculture:            [GNC.AX, ELD.AX, NUF.AX, AAC.AX]
+
+names:
+  CBA.AX: Commonwealth Bank
+  NAB.AX: National Australia Bank
+  WBC.AX: Westpac
+  ANZ.AX: ANZ Group
+  MQG.AX: Macquarie Group
+  BEN.AX: Bendigo & Adelaide Bank
+  BOQ.AX: Bank of Queensland
+  BHP.AX: BHP Group
+  RIO.AX: Rio Tinto
+  S32.AX: South32
+  MIN.AX: Mineral Resources
+  IGO.AX: IGO Limited
+  FMG.AX: Fortescue
+  CIA.AX: Champion Iron
+  DRR.AX: Deterra Royalties
+  MGX.AX: Mount Gibson Iron
+  NST.AX: Northern Star Resources
+  EVN.AX: Evolution Mining
+  GMD.AX: Genesis Minerals
+  PRU.AX: Perseus Mining
+  RRL.AX: Regis Resources
+  CMM.AX: Capricorn Metals
+  WAF.AX: West African Resources
+  RSG.AX: Resolute Mining
+  SFR.AX: Sandfire Resources
+  AIS.AX: Aeris Resources
+  C6C.AX: Copper Mountain Mining
+  PLS.AX: Pilbara Minerals
+  LTR.AX: Liontown Resources
+  CXO.AX: Core Lithium
+  SYA.AX: Sayona Mining
+  VUL.AX: Vulcan Energy
+  PDN.AX: Paladin Energy
+  BOE.AX: Boss Energy
+  DYL.AX: Deep Yellow
+  LOT.AX: Lotus Resources
+  BMN.AX: Bannerman Energy
+  WDS.AX: Woodside Energy
+  STO.AX: Santos
+  BPT.AX: Beach Energy
+  KAR.AX: Karoon Energy
+  CSL.AX: CSL Limited
+  RMD.AX: ResMed
+  COH.AX: Cochlear
+  SHL.AX: Sonic Healthcare
+  FPH.AX: Fisher & Paykel Healthcare
+  EBO.AX: Ebos Group
+  PME.AX: Pro Medicus
+  TLX.AX: Telix Pharmaceuticals
+  MSB.AX: Mesoblast
+  NEU.AX: Neuren Pharmaceuticals
+  CU6.AX: Clarity Pharmaceuticals
+  XRO.AX: Xero
+  WTC.AX: WiseTech Global
+  TNE.AX: Technology One
+  SDR.AX: SiteMinder
+  MP1.AX: Megaport
+  NXL.AX: Nuix
+  REA.AX: REA Group
+  CAR.AX: CAR Group
+  SEK.AX: Seek
+  DHG.AX: Domain Holdings
+  NXT.AX: NextDC
+  GMG.AX: Goodman Group
+  MAQ.AX: Macquarie Technology
+  DGT.AX: Digico Infrastructure REIT
+  ASB.AX: Austal
+  CDA.AX: Codan
+  DRO.AX: DroneShield
+  EOS.AX: Electro Optic Systems
+  WES.AX: Wesfarmers
+  JBH.AX: JB Hi-Fi
+  HVN.AX: Harvey Norman
+  LOV.AX: Lovisa
+  TPW.AX: Temple & Webster
+  ALL.AX: Aristocrat Leisure
+  WOW.AX: Woolworths
+  COL.AX: Coles
+  EDV.AX: Endeavour Group
+  MTS.AX: Metcash
+  SCG.AX: Scentre Group
+  SGP.AX: Stockland
+  VCX.AX: Vicinity Centres
+  CHC.AX: Charter Hall
+  BXB.AX: Brambles
+  QAN.AX: Qantas
+  SVW.AX: Seven Group
+  TCL.AX: Transurban
+  ALQ.AX: ALS Limited
+  GNC.AX: GrainCorp
+  ELD.AX: Elders
+  NUF.AX: Nufarm
+  AAC.AX: Australian Agricultural Co

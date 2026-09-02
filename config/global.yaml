@@ -1,0 +1,22 @@
+# Stock Analyser — Global view (Stage 1: cross-market drivers, not a third stock universe)
+
+market:
+  key: global
+  label: Global
+  currency: "US$"
+
+drivers:
+  SPY:        { label: "S&P 500",        group: "Equities" }
+  QQQ:        { label: "Nasdaq 100",     group: "Equities" }
+  "^AXJO":    { label: "ASX 200",        group: "Equities" }
+  "^HSI":     { label: "Hang Seng",      group: "Equities" }
+  "^N225":    { label: "Nikkei 225",     group: "Equities" }
+  "^FTSE":    { label: "FTSE 100",       group: "Equities" }
+  "AUDUSD=X": { label: "AUD/USD",        group: "FX" }
+  "DX-Y.NYB": { label: "US dollar index", group: "FX" }
+  "GC=F":     { label: "Gold",           group: "Commodities" }
+  "HG=F":     { label: "Copper",         group: "Commodities" }
+  "BZ=F":     { label: "Brent crude",    group: "Commodities" }
+  "SI=F":     { label: "Silver",         group: "Commodities" }
+  "^TNX":     { label: "US 10Y yield",   group: "Rates" }
+  "^VIX":     { label: "VIX",            group: "Volatility" }
