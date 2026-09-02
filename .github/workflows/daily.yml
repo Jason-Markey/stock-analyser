@@ -1,0 +1,40 @@
+name: Daily dashboard
+
+on:
+  schedule:
+    # 22:30 UTC Mon–Fri = after US close year-round (EDT and EST)
+    # = 8:30am Brisbane the next morning. Cron is UTC.
+    - cron: "30 22 * * 1-5"
+  workflow_dispatch: {}   # lets you run it manually from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run pipeline
+        run: python run_daily.py
+
+      - name: Publish dashboard into the repo
+        run: |
+          mkdir -p docs
+          cp output/index.html docs/index.html
+          cp output/dashboard_*.html docs/ 2>/dev/null || true
+          # keep only the last 30 dated dashboards
+          ls -t docs/dashboard_*.html 2>/dev/null | tail -n +31 | xargs -r rm --
+          git config user.name "stock-analyser-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs
+          git diff --cached --quiet || git commit -m "Dashboard $(date -u +%F)"
+          git push
