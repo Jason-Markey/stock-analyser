@@ -44,6 +44,12 @@ def basket_metrics(m: pd.DataFrame, baskets: dict[str, list[str]],
             "weak": list(sub.sort_values("rel_1w").index[:2]),
             "spark": _basket_spark(sub, w),
         })
+    if not rows:
+        return pd.DataFrame(columns=[
+            "n", "ret_1d", "rel_1w", "rel_1m", "rel_3m", "accel", "vol_ratio",
+            "flow_bps", "breadth", "above_ma20", "above_ma50", "above_ma200",
+            "trend", "phase", "leaders", "weak", "spark",
+        ]).rename_axis("basket")
     return (pd.DataFrame(rows).set_index("basket")
             .sort_values("rel_1m", ascending=False))
 
