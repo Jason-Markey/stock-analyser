@@ -13,6 +13,11 @@ def todays_read(mkt_cfg: dict, m: pd.DataFrame, b: pd.DataFrame,
                 tape: dict[str, dict], regime: dict) -> list[dict]:
     bench = mkt_cfg["benchmark_label"]
     cards: list[dict] = []
+    if b.empty:
+        return [{"title": f"{bench}: theme data unavailable this run",
+                 "body": "No liquid names made it through the data fetch — check the "
+                         "pipeline log. Signals resume on the next successful run.",
+                 "tickers": [], "dir": "flat"}]
 
     # 1 — the tape + regime in one card
     bt = tape.get(mkt_cfg["benchmark"], {})

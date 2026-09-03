@@ -6,6 +6,7 @@ backends (Tradier chains, ASX feeds) drop in without touching signal code.
 from __future__ import annotations
 
 import datetime as dt
+import hashlib
 import time
 from pathlib import Path
 
@@ -27,7 +28,9 @@ def get_prices(tickers: list[str], history_days: int = 400,
     """
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     today = dt.date.today().isoformat()
-    cache = CACHE_DIR / f"prices_{today}.parquet"
+    # cache key includes the ticker set — markets must never share a cache file
+    key = hashlib.md5(",".join(sorted(tickers)).encode()).hexdigest()[:8]
+    cache = CACHE_DIR / f"prices_{today}_{key}.parquet"
 
     if use_cache and cache.exists():
         wide = pd.read_parquet(cache)
