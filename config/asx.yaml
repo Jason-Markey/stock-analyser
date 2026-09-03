@@ -33,20 +33,20 @@ baskets:
   Diversified miners:     [BHP.AX, RIO.AX, S32.AX, MIN.AX, IGO.AX]
   Iron ore:               [FMG.AX, CIA.AX, DRR.AX, MGX.AX]
   Gold miners:            [NST.AX, EVN.AX, GMD.AX, PRU.AX, RRL.AX, CMM.AX, WAF.AX, RSG.AX]
-  Copper:                 [SFR.AX, AIS.AX, C6C.AX]
-  Lithium / battery:      [PLS.AX, LTR.AX, CXO.AX, SYA.AX, VUL.AX]
+  Copper:                 [SFR.AX, AIS.AX, 29M.AX]
+  Lithium / battery:      [PLS.AX, LTR.AX, CXO.AX, VUL.AX]
   Uranium:                [PDN.AX, BOE.AX, DYL.AX, LOT.AX, BMN.AX]
   Oil & gas:              [WDS.AX, STO.AX, BPT.AX, KAR.AX]
   Healthcare:             [CSL.AX, RMD.AX, COH.AX, SHL.AX, FPH.AX, EBO.AX]
   Biotech:                [PME.AX, TLX.AX, MSB.AX, NEU.AX, CU6.AX]
   Software / tech:        [XRO.AX, WTC.AX, TNE.AX, SDR.AX, MP1.AX, NXL.AX]
-  Online marketplaces:    [REA.AX, CAR.AX, SEK.AX, DHG.AX]
+  Online marketplaces:    [REA.AX, CAR.AX, SEK.AX]
   Data centres / AI infra: [NXT.AX, GMG.AX, MAQ.AX, DGT.AX]
   Defence:                [ASB.AX, CDA.AX, DRO.AX, EOS.AX]
   Consumer discretionary: [WES.AX, JBH.AX, HVN.AX, LOV.AX, TPW.AX, ALL.AX]
   Consumer staples:       [WOW.AX, COL.AX, EDV.AX, MTS.AX]
   REITs:                  [GMG.AX, SCG.AX, SGP.AX, VCX.AX, CHC.AX]
-  Industrials:            [BXB.AX, QAN.AX, SVW.AX, TCL.AX, ALQ.AX]
+  Industrials:            [BXB.AX, QAN.AX, SGH.AX, TCL.AX, ALQ.AX]
   Agriculture:            [GNC.AX, ELD.AX, NUF.AX, AAC.AX]
 
 names:
@@ -76,11 +76,10 @@ names:
   RSG.AX: Resolute Mining
   SFR.AX: Sandfire Resources
   AIS.AX: Aeris Resources
-  C6C.AX: Copper Mountain Mining
+  29M.AX: 29Metals
   PLS.AX: Pilbara Minerals
   LTR.AX: Liontown Resources
   CXO.AX: Core Lithium
-  SYA.AX: Sayona Mining
   VUL.AX: Vulcan Energy
   PDN.AX: Paladin Energy
   BOE.AX: Boss Energy
@@ -111,7 +110,6 @@ names:
   REA.AX: REA Group
   CAR.AX: CAR Group
   SEK.AX: Seek
-  DHG.AX: Domain Holdings
   NXT.AX: NextDC
   GMG.AX: Goodman Group
   MAQ.AX: Macquarie Technology
@@ -136,7 +134,7 @@ names:
   CHC.AX: Charter Hall
   BXB.AX: Brambles
   QAN.AX: Qantas
-  SVW.AX: Seven Group
+  SGH.AX: SGH Limited
   TCL.AX: Transurban
   ALQ.AX: ALS Limited
   GNC.AX: GrainCorp
